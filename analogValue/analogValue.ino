@@ -21,5 +21,5 @@ void loop() {
     digitalWrite(4, HIGH);
     digitalWrite(5, HIGH);
   }
-  delay(100);
+  delay(50);
 }
