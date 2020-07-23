@@ -69,7 +69,7 @@ void loop() {
   //Tell the spot we touch
   if(p.x< TS_MINX && p.x>TS_MAXX && p.y<TS_MAXY && p.y>TS_MINY) {
   p.x = map(p.x, TS_MINX, TS_MAXX, 0, tft.width());
-  p.y = map(p.y, TS_MINY, TS_MAXY, 0, tft.width());
+  p.y = map(p.y, TS_MINY, TS_MAXY, 0, tft.height());
   Serial.print("\nX = "); Serial.print(p.x);
   Serial.print("\nY = "); Serial.print(p.y);
   Serial.print("\nPressure = "); Serial.print(p.z);  

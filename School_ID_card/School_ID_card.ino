@@ -6,20 +6,21 @@
 #include "BigPhoto.h"
 
 //ESP8266
-   #define STMPE_CS 16
-   #define TFT_CS   0
-   #define TFT_DC   15
-   #define SD_CS    2
-
-
-Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
-Adafruit_STMPE610 ts = Adafruit_STMPE610(STMPE_CS);
+#define STMPE_CS 16
+#define TFT_CS   0
+#define TFT_DC   15
+#define SD_CS    2
 
 
 #define TS_MINX 3800
 #define TS_MAXX 100
 #define TS_MINY 100
 #define TS_MAXY 3750
+
+
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
+Adafruit_STMPE610 ts = Adafruit_STMPE610(STMPE_CS);
+
 
 TS_Point p;
 
@@ -73,8 +74,10 @@ void setup() {
 
   delay(10);
   Serial.println("FeatherWing TFT Test!");
-
+  
+  ts.begin();
   tft.begin();
+  
 
   tft.setRotation(1);
   Background();
@@ -85,6 +88,7 @@ void setup() {
   myInform();
   tft.setCursor(0,50);  
   tft.drawRGBBitmap(0 , 50,myphoto, PHOTO_WIDTH, PHOTO_HEIGHT);
+  delay(100);
 }
 
 void loop() {
